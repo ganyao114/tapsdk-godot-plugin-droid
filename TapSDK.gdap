@@ -7,4 +7,5 @@ binary="TapSDK.release.aar"
 [dependencies]
 remote=["cn.leancloud:realtime-android:8.2.12"]
 remote=["cn.leancloud:storage-android:8.2.12"]
+remote=["cn.leancloud:storage-core:8.2.12"]
 remote=["io.reactivex.rxjava2:rxandroid:2.1.1"]

@@ -1,5 +1,6 @@
 package org.godotengine.godot.plugin;
 
+import android.util.ArraySet;
 import android.util.Log;
 import android.webkit.WebView;
 import android.widget.Toast;
@@ -18,7 +19,11 @@ import com.tds.common.models.TapRegionType;
 import org.godotengine.godot.Dictionary;
 import org.godotengine.godot.Godot;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import cn.leancloud.LCLogger;
 import cn.leancloud.core.LeanCloud;
@@ -29,9 +34,9 @@ public class TapSDK extends GodotPlugin {
     private static final String TAG = "TapSDK";
 
     // 开发者中心后台应用配置信息
-    public static final String TDS_ClientID = "替换为您的 ClientID ";
-    public static final String TDS_ClientToken = "替换为您的 ClientToken ";
-    public static final String TDS_ServerUrl = "替换为您的 ServerUrl ";
+    public static final String TDS_ClientID = "0RiAlMny7jiz086FaU";
+    public static final String TDS_ClientToken = "8V8wemqkpkxmAN7qKhvlh6v0pXc8JJzEZe3JFUnU";
+    public static final String TDS_ServerUrl = "https://0rialmny.cloud.tds1.tapapis.cn";
 
     String userID = "";
     String accessToken = "";
@@ -119,5 +124,20 @@ public class TapSDK extends GodotPlugin {
     @Override
     public String getPluginName() {
         return "TapSDK";
+    }
+
+    @NonNull
+    @Override
+    public List<String> getPluginMethods() {
+        return Arrays.asList(new String[]{"startLogin"});
+    }
+
+    @NonNull
+    @Override
+    public Set<SignalInfo> getPluginSignals() {
+        Set<SignalInfo> signals = new HashSet<>();
+        signals.add(new SignalInfo("tap_login_success"));
+        signals.add(new SignalInfo("tap_login_failed"));
+        return signals;
     }
 }

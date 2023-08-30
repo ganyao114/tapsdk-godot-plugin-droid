@@ -1,3 +1,2 @@
 include ':tapsdk'
-include ':sdks'
 rootProject.name = "tapsdk-plugin"
