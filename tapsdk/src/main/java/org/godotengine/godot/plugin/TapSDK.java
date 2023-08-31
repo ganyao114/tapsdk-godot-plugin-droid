@@ -94,11 +94,7 @@ public class TapSDK extends GodotPlugin {
                     Log.d(TAG, "unionid:" + taptapAuthData.get("unionid").toString());
                     Log.d(TAG, "openid:" + taptapAuthData.get("openid").toString());
                     Toast.makeText(getActivity(), "succeed to login with Taptap.", Toast.LENGTH_SHORT).show();
-                    Dictionary returnValue = new Dictionary();
-                    returnValue.put("user_name", userName);
-                    returnValue.put("user_id", userID);
-                    returnValue.put("openid", taptapAuthData.get("unionid").toString());
-                    emitSignal("tap_login_success", (Object) returnValue);
+                    emitSignal("tap_login_success", userName, userID, taptapAuthData.get("unionid").toString());
                 }
 
                 @Override
@@ -107,10 +103,7 @@ public class TapSDK extends GodotPlugin {
                     Log.d(TAG, error.detailMessage);
                     Log.d(TAG, error.getMessage());
                     Log.d(TAG, error.toJSON());
-                    Dictionary returnValue = new Dictionary();
-                    returnValue.put("message", error.getMessage());
-                    returnValue.put("detail_message", error.detailMessage);
-                    emitSignal("tap_login_failed", (Object) returnValue);
+                    emitSignal("tap_login_failed", error.getMessage(), error.detailMessage);
                 }
             }, TapLoginHelper.SCOPE_PUBLIC_PROFILE);
         } else {
@@ -135,8 +128,8 @@ public class TapSDK extends GodotPlugin {
     @Override
     public Set<SignalInfo> getPluginSignals() {
         Set<SignalInfo> signals = new HashSet<>();
-        signals.add(new SignalInfo("tap_login_success"));
-        signals.add(new SignalInfo("tap_login_failed"));
+        signals.add(new SignalInfo("tap_login_success", String.class, String.class, String.class));
+        signals.add(new SignalInfo("tap_login_failed", String.class, String.class));
         return signals;
     }
 }
