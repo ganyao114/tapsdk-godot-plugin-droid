@@ -1,6 +1,5 @@
 package org.godotengine.godot.plugin;
 
-import android.util.ArraySet;
 import android.util.Log;
 import android.webkit.WebView;
 import android.widget.Toast;

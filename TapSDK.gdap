@@ -6,7 +6,4 @@ binary="TapSDK.1.1.2.debug.aar"
 
 [dependencies]
 local=["AntiAddiction_3.16.4.aar", "AntiAddictionUI_3.16.4.aar", "TapAchievement_3.16.4.aar", "TapBillboard_3.16.4.aar", "TapBootstrap_3.16.4.aar", "TapCommon_3.16.4.aar", "TapDB_3.16.4.aar", "TapFriend_3.16.4.aar", "TapLicense_3.16.4.aar", "TapLogin_3.16.4.aar", "TapMoment_3.16.4.aar", "TapSupport_3.16.4.aar"]
-remote=["cn.leancloud:realtime-android:8.2.12"]
-remote=["cn.leancloud:storage-android:8.2.12"]
-remote=["cn.leancloud:storage-core:8.2.12"]
-remote=["io.reactivex.rxjava2:rxandroid:2.1.1"]
+remote=["cn.leancloud:realtime-android:8.2.12", "cn.leancloud:storage-core:8.2.12", "cn.leancloud:storage-android:8.2.12", "io.reactivex.rxjava2:rxandroid:2.1.1"]
